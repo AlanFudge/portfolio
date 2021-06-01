@@ -34,7 +34,7 @@ nav {
     display: flex;
     align-items: center;
     justify-content: center;
-    z-index: 10;
+    z-index: 1000;
     backdrop-filter: blur(4px);
 }
 
@@ -123,8 +123,8 @@ section {
 }
 
 #skills {
-    height: 900px;
     background-color: var(--primary-color);
+    min-height: 900px;
 }
 
 .tech-container {
@@ -195,6 +195,7 @@ section {
     align-items: center;
     justify-content: space-around;
     grid-column: 2 / span 8;
+    overflow-x: hidden;
 }
 
 .project-card {
