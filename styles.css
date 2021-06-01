@@ -5,7 +5,7 @@
 body {
     padding: 0;
     margin: 0;
-    --primary-color: rgba(120, 100, 120, 1);
+    --primary-color: rgba(100, 120, 120, 1);
     --secondary-color: rgba(0, 0, 0, 0.3);
     --tertiary-color: rgba(0, 0, 0, 0.6);
     --button-color: #A5A5A5A5;
@@ -35,7 +35,7 @@ nav {
     align-items: center;
     justify-content: center;
     z-index: 10;
-    backdrop-filter: blur(2px);
+    backdrop-filter: blur(4px);
 }
 
 nav img {
