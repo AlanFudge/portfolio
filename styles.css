@@ -89,7 +89,7 @@ section {
 }
 
 .about-banner {
-    grid-column: 1 / span 7;
+    grid-column: 1 / span 6;
 }
 
 .about-banner img {
@@ -98,7 +98,7 @@ section {
 }
 
 #about .section-text {
-    grid-column: 8 / span 3;
+    grid-column: 7 / span 4;
 }
 
 #skills .section-text {
@@ -178,7 +178,7 @@ section {
     width: 100%;
     height: 100%;
     background-color: var(--tertiary-color);
-    clip-path: polygon(20% 50%, 80% 10%, 82% 10%, 22% 50%, 82% 90%, 80% 90%);
+    clip-path: polygon(20% 50%, 80% 10%, 86% 10%, 26% 50%, 86% 90%, 80% 90%);
 }
 
 .carousel-left {
