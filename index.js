@@ -54,4 +54,28 @@ class Carousel {
     }
 }
 
+class Slideshow {
+    constructor(element, imagePrefix, imagePath, numImages, interval = 5000) {
+        this.pathPrefix = imagePath + imagePrefix;
+        this.currentSlide = 0;
+        this.numSlides = numImages - 1
+        this.slideshowElement = element;
+
+        this.slideshowElement.setAttribute("src", this.pathPrefix + this.currentSlide + ".jpg")
+        setInterval(this.nextSlide.bind(this), interval);
+    }
+
+    nextSlide() {
+        let nextSlide = this.currentSlide;
+        if (this.currentSlide < this.numSlides) {
+            nextSlide++;
+        } else {
+            nextSlide = 0;
+        }
+        this.slideshowElement.setAttribute("src", this.pathPrefix + nextSlide + ".jpg");
+        this.currentSlide = nextSlide;
+    }
+}
+
+const bannerSlideshow = new Slideshow(document.querySelector(".about-banner img"), "slideshowImg-", "./assets/bannerPhotos/", 9);
 const projectsCarousel = new Carousel(document.querySelector(".carousel-container"), 325, 75);
