@@ -2,25 +2,21 @@ class Carousel {
     constructor(containerElement, itemWidth, minItemPadding) {
         this.containerElement = containerElement;
         this.minPadding = minItemPadding; //padding on either side of item
-        
-        this.leftArrow = containerElement.querySelector(".carousel-left");
-        this.rightArrow = containerElement.querySelector(".carousel-right");
-        
-        this.itemsContainer = containerElement.querySelector(".carousel-items");
-        this.itemsContainerWidth = this.itemsContainer.clientWidth;
-        this.itemsContainer.style.position = "relative";
+        this.itemWidth = itemWidth
+        this.leftArrow = this.containerElement.querySelector(".carousel-left");
+        this.rightArrow = this.containerElement.querySelector(".carousel-right");
+
+        this.itemsContainer = this.containerElement.querySelector(".carousel-items");
 
         this.items = Array.prototype.slice.call(this.itemsContainer.querySelectorAll(".carousel-item"));
-        this.itemWidth = itemWidth
 
-        this.itemsPerSlide = Math.floor(this.itemsContainerWidth / (this.minPadding + this.itemWidth));
+        this.resize = this.resize.bind(this);
 
-        this.numSlides = Math.ceil(this.items.length / this.itemsPerSlide);
-        this.currentSlide = 1;
-
-        this.distributeItems();
-        this.rightArrow.parentElement.addEventListener("click", this.goForward.bind(this));
+        this.resize();
+        
+        window.addEventListener("resize", this.resize);
         this.leftArrow.parentElement.addEventListener("click", this.goBackward.bind(this));
+        this.rightArrow.parentElement.addEventListener("click", this.goForward.bind(this));
     }
 
     distributeItems() {
@@ -49,8 +45,17 @@ class Carousel {
         }
     }
 
-    init() {
+    resize() {
         //write initialization so that when window resizes it redraws the carousel. should call in constructor to replace setup as well;
+        this.itemsContainerWidth = this.itemsContainer.clientWidth;
+        this.itemsContainer.style.position = "relative";
+
+        this.itemsPerSlide = Math.floor(this.itemsContainerWidth / (this.minPadding + this.itemWidth));
+
+        this.numSlides = Math.ceil(this.items.length / this.itemsPerSlide);
+        this.currentSlide = 1;
+
+        this.distributeItems();
     }
 }
 
