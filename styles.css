@@ -47,7 +47,7 @@ nav {
     position: fixed;
     top: 0;
     left: 0;
-    height:60px;
+    height: 60px;
     background-color: var(--tertiary-color);
     width: 100%;
     display: flex;
@@ -238,6 +238,7 @@ section {
 
 .project-card-text {
     padding: 10px 25px;
+    height: calc(50% - 20px);
 }
 
 .project-card h2 {
@@ -254,6 +255,7 @@ section {
     width: calc(100% - 50px);
     height: 80px;
     background-color: var(--button-color);
+    left: 25px;
     bottom: 25px;
     position: absolute;
 }
@@ -293,4 +295,92 @@ footer .project-card-button {
     position: relative;
     bottom: unset;
     width: 300px;
+}
+
+@media only screen and (max-width: 1200px) {
+    #about {
+        height: 600px;
+    }
+    .about-banner {
+        grid-column: 1 / span 10;
+    }
+    .about-banner img {
+        object-fit: cover;
+    }
+    #about .section-text {
+        grid-column: 1 / span 10;
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        background-color: rgba(0, 0, 0, 0.6);
+    }
+    #skills .section-text {
+        grid-column: 1 / span 10;
+    }
+    .tech-container {
+        grid-column: 1 / span 10;
+    }
+}
+
+@media only screen and (max-width: 850px) {
+    nav {
+        min-height: 60px;
+        height: fit-content;
+    }
+    nav ul {
+        margin: 0 0 0 0;
+    }
+    nav ul::before {
+        content: "Menu";
+        font-size: 32px;
+        text-decoration: underline;
+        transition: 200ms;
+        margin: 0;
+        height: 60px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    nav ul li {
+        display: none;
+    }
+    nav ul:hover li {
+        display: flex;
+    }
+    nav ul {
+        justify-content: space-around;
+        margin-left: 0;
+        flex-direction: column;
+    }
+    nav li {
+        margin: 0 10px;
+    }
+    .about-banner img {
+        height: 100%;
+        width: auto;
+    }
+    .project-card {
+        width: 100%;
+    }
+    .project-card img {
+        height: 30%;
+    }
+    .project-card-text {
+        padding: 5px 10px;
+        margin: 0;
+        width: calc(100% - 20px);
+        height: calc(70% - 10px);
+    }
+    .project-card h2 {
+        margin-top: 0;
+    }
+    .project-card p {
+        font-size: 20px;
+    }
+    .social-icon {
+        height: 75px;
+        width: auto;
+    }
 }

@@ -1,6 +1,7 @@
 class Carousel {
     constructor(containerElement, itemWidth, minItemPadding) {
         this.containerElement = containerElement;
+        this.minPaddingStored = minItemPadding;
         this.minPadding = minItemPadding; //padding on either side of item
         this.itemWidth = itemWidth
         this.leftArrow = this.containerElement.querySelector(".carousel-left");
@@ -22,7 +23,7 @@ class Carousel {
     distributeItems() {
         this.items.forEach((card, i) => {
             card.style.position = "absolute";
-            const padding = ((this.itemsContainerWidth / this.itemsPerSlide) - 325);
+            const padding = ((this.itemsContainerWidth / this.itemsPerSlide) - this.itemWidth);
             card.style.left = padding / 2 + (this.itemWidth + padding) * i;
         });
     }
@@ -48,9 +49,11 @@ class Carousel {
     resize() {
         //write initialization so that when window resizes it redraws the carousel. should call in constructor to replace setup as well;
         this.itemsContainerWidth = this.itemsContainer.clientWidth;
+        if (this.itemsContainerWidth < this.itemWidth) this.itemsContainerWidth = this.itemWidth;
         this.itemsContainer.style.position = "relative";
 
         this.itemsPerSlide = Math.floor(this.itemsContainerWidth / (this.minPadding + this.itemWidth));
+        if (this.itemsPerSlide < 1) this.itemsPerSlide = 1;
 
         this.numSlides = Math.ceil(this.items.length / this.itemsPerSlide);
         this.currentSlide = 1;
