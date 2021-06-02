@@ -34,7 +34,6 @@ class Carousel {
     goForward() {
         if (this.currentSlide < this.numSlides) {
             this.items.forEach(card => {
-                console.log(card.style.left);
                 card.style.left = parseInt(card.style.left) - this.itemsContainerWidth;
             });
             this.currentSlide++;
@@ -44,7 +43,6 @@ class Carousel {
     goBackward() {
         if (this.currentSlide > 1) {
             this.items.forEach(card => {
-                console.log(card.style.left);
                 card.style.left = parseInt(card.style.left) + this.itemsContainerWidth;
             });
             this.currentSlide--;
