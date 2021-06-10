@@ -22,7 +22,7 @@ class Carousel {
         //Handling touches below here
         this.touchStartX = 0;
         this.touchEndX = 0;
-        this.deadzone = 200;
+        this.deadzone = 100;
 
         this.handleSwipe = this.handleSwipe.bind(this);
         
