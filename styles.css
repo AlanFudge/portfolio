@@ -404,4 +404,9 @@ footer .project-card-button {
         width: 100%;
         height: calc(100vh - 60px);
     }
+    .carousel-arrow-container {
+        height: 50%;
+        position: relative;
+        top: 25%;
+    }
 }
