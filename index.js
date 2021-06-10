@@ -18,6 +18,22 @@ class Carousel {
         window.addEventListener("resize", this.resize);
         this.leftArrow.parentElement.addEventListener("click", this.goBackward.bind(this));
         this.rightArrow.parentElement.addEventListener("click", this.goForward.bind(this));
+
+        //Handling touches below here
+        this.touchStartX = 0;
+        this.touchEndX = 0;
+        this.deadzone = 200;
+
+        this.handleSwipe = this.handleSwipe.bind(this);
+        
+        this.containerElement.addEventListener('touchstart', (e) => {
+            this.touchStartX = e.changedTouches[0].screenX;
+        }, false);
+
+        this.containerElement.addEventListener('touchend', (e) => {
+            this.touchEndX = e.changedTouches[0].screenX;
+            this.handleSwipe();
+        });
     }
 
     distributeItems() {
@@ -59,6 +75,16 @@ class Carousel {
         this.currentSlide = 1;
 
         this.distributeItems();
+    }
+
+    handleSwipe() {
+        if (this.touchEndX + this.deadzone < this.touchStartX) {
+            //swiped left
+            this.goForward();
+        }
+        if (this.touchEndX - this.deadzone > this.touchStartX) {
+            this.goBackward();
+        }
     }
 }
 
