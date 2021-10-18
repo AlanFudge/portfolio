@@ -255,13 +255,23 @@ section {
     font-size: 20px;
 }
 
+.project-card-button-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    bottom: 25px;
+    left: 25px;
+    right: 25px;
+}
+
 .project-card-button {
     width: calc(100% - 50px);
-    height: 80px;
+    height: 40px;
+    width: 100%;
+    margin: 5px;
     background-color: var(--button-color);
-    left: 25px;
-    bottom: 25px;
-    position: absolute;
 }
 
 .project-card-button a {
@@ -270,7 +280,7 @@ section {
     justify-content: center;
     height: 100%;
     width: 100%;
-    font-size: 24px;
+    font-size: 20px;
     font-weight: bold;
 }
 
